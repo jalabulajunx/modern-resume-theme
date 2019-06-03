@@ -6,6 +6,6 @@
     </div>
   {%- endif -%}
   {% for education in site.data.education %}
-    {% include {{ education.layout | markdownify | default: 'left' | append: ".html" }} item=education %}
+    {% include {{ education.layout | default: 'left' | append: ".html" }} item=education %}
   {% endfor %}
 </div>
