@@ -1,11 +1,15 @@
 <div class="container education-container">
   <h3>{{ site.education_title | default: "Education" }}</h3>
-  {%- if site.about_university_image -%}
-    <div class="col-xs-12 col-sm-4 col-md-3 no-print">
-      <span class="logo-img" style="background-image: url({{ site.about_university_image | relative_url }})" />
+  <div class="row clearfix">
+    {%- if site.about_university_image -%}
+      <div class="col-xs-12 col-sm-4 col-md-3 no-print">
+        <span class="logo-img" style="background-image: url({{ site.about_university_image | relative_url }})" />
+      </div>
+    {%- endif -%}
+    <div class="{{ 'col-xs-12 ' }}{%- if site.about_profile_image -%}col-sm-8 col-md-9 col-print-12{%- endif -%}">
+      {% for education in site.data.education %}
+        {% include {{ education.layout | default: 'left' | append: ".html" }} item=education %}
+      {% endfor %}
     </div>
-  {%- endif -%}
-  {% for education in site.data.education %}
-    {% include {{ education.layout | default: 'left' | append: ".html" }} item=education %}
-  {% endfor %}
+  </div>
 </div>
