@@ -63,7 +63,6 @@ sass:
 
 plugins:
  - jekyll-seo-tag
- - jekyll-last-modified-at
 
 exclude : [
   "Gemfile",
